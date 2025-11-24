@@ -3,6 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
     title: "TinyBill – Rechnungen in Minuten statt Stunden",
+    icon: "/fav.ico",
     description:
         "Rechnungen, die sich fast von selbst schreiben – mit TinyBill. Intelligente Automatisierung, E-Rechnung und smarte Checks.",
 };
