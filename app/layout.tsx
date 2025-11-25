@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
     title: "TinyBill – Rechnungen in Minuten statt Stunden",
@@ -18,6 +20,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="de">
+            <SpeedInsights />
+            <Analytics />
             <body className="min-h-screen bg-slate-50 text-slate-900">
                 {children}
             </body>
