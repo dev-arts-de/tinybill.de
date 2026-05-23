@@ -291,6 +291,8 @@ export default function HomePage() {
                           src="/screens/tinybill-app-example.png"
                           alt="TinyBill Rechnungsoberfläche"
                           fill
+                          priority
+                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 60vw, 720px"
                           className="object-cover"
                       />
                     </div>
