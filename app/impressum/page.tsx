@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { PageShell } from "@/components/marketing";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+
+export const metadata: Metadata = {
+    title: "Impressum",
+    description:
+        "Angaben gemäß § 5 TMG und § 18 Abs. 2 MStV zum Anbieter von TinyBill.",
+    alternates: { canonical: "/impressum" },
+    robots: { index: true, follow: false },
+};
 
 export default function ImpressumPage() {
     return (

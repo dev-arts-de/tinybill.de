@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
     PageShell,
     SectionHeader,
@@ -7,6 +8,17 @@ import {
 } from "@/components/marketing";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { APP_URL } from "@/lib/links";
+
+export const metadata: Metadata = {
+    title: "Automation",
+    description:
+        "Ghostwriting, IBAN- und Adress-Vorschläge, Plausibilitätschecks, Steuerlogik und E-Rechnung im Hintergrund – Automation, die unterstützt statt überschreibt.",
+    alternates: { canonical: "/automation" },
+    openGraph: {
+        title: "Automation · TinyBill",
+        url: "/automation",
+    },
+};
 
 export default function AutomationPage() {
     return (

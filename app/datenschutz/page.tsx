@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { PageShell } from "@/components/marketing";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+
+export const metadata: Metadata = {
+    title: "Datenschutzerklärung",
+    description:
+        "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO im Zusammenhang mit TinyBill und dieser Website.",
+    alternates: { canonical: "/datenschutz" },
+    robots: { index: true, follow: false },
+};
 
 export default function DatenschutzPage() {
     return (

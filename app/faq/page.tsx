@@ -1,9 +1,21 @@
+import type { Metadata } from "next";
 import {
     PageShell,
     SectionHeader,
     FaqItem,
 } from "@/components/marketing";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+
+export const metadata: Metadata = {
+    title: "FAQ",
+    description:
+        "Häufige Fragen zu TinyBill: Funktionen, E-Rechnung, Preise und Datenverarbeitung – kompakt beantwortet.",
+    alternates: { canonical: "/faq" },
+    openGraph: {
+        title: "FAQ · TinyBill",
+        url: "/faq",
+    },
+};
 
 export default function FaqPage() {
     return (

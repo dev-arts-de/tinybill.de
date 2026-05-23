@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
     PageShell,
     SectionHeader,
@@ -6,6 +7,17 @@ import {
 } from "@/components/marketing";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { APP_URL } from "@/lib/links";
+
+export const metadata: Metadata = {
+    title: "Preise",
+    description:
+        "TinyBill ist in der Launch-Phase kostenlos nutzbar. Keine Kreditkarte, keine Mindestlaufzeit – Fokus auf Produkt statt Paywalls.",
+    alternates: { canonical: "/preise" },
+    openGraph: {
+        title: "Preise · TinyBill",
+        url: "/preise",
+    },
+};
 
 export default function PreisePage() {
     return (

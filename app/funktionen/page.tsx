@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
     PageShell,
@@ -8,6 +9,17 @@ import {
 } from "@/components/marketing";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { APP_URL } from "@/lib/links";
+
+export const metadata: Metadata = {
+    title: "Funktionen",
+    description:
+        "Alle Funktionen von TinyBill im Detail: Stammdaten, IBAN-Checks, Steuerlogik, E-Rechnung, QR-Zahlung, Sammelrechnung und mehr.",
+    alternates: { canonical: "/funktionen" },
+    openGraph: {
+        title: "Funktionen · TinyBill",
+        url: "/funktionen",
+    },
+};
 
 export default function FunktionenPage() {
     return (
