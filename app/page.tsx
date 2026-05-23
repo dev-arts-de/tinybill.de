@@ -450,9 +450,9 @@ export default function HomePage() {
                   <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">
                     Automation integriert
                   </p>
-                  <h3 className="text-lg font-semibold tracking-tight sm:text-xl">
+                  <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
                     Rechnet dir Arbeit ab.
-                  </h3>
+                  </h2>
                   <p className="text-sm text-slate-600">
                     TinyBill denkt mit, während du tippst: Inhalte werden
                     vervollständigt, geprüft und mit deinen bisherigen
@@ -507,9 +507,9 @@ export default function HomePage() {
                   <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">
                     Wächst mit dir
                   </p>
-                  <h3 className="text-lg font-semibold tracking-tight sm:text-xl">
+                  <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
                     Bleibt leicht, egal wie groß du wirst.
-                  </h3>
+                  </h2>
                   <p className="text-sm text-slate-600">
                     Egal ob du als Einzelperson startest oder später ein kleines
                     Team aufbaust – TinyBill skaliert mit, ohne schwerfällig
@@ -559,9 +559,9 @@ export default function HomePage() {
                 <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">
                   Flow
                 </p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
                   Einmal verstanden, nie wieder nachdenken.
-                </h3>
+                </h2>
                 <p className="mt-3 text-sm text-slate-600">
                   Während du nach unten scrollst, siehst du den Weg einer
                   Rechnung – von der Idee bis zum Geld auf deinem Konto.
@@ -889,9 +889,9 @@ export default function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">
                 Preise
               </p>
-              <h3 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
                 Starte kostenlos – zahle erst, wenn TinyBill dir wirklich hilft.
-              </h3>
+              </h2>
               <p className="mt-3 text-sm text-slate-600">
                 Perfekt, um TinyBill mit echten Projekten zu testen, bevor du
                 dich für ein dauerhaftes Modell entscheidest.
@@ -940,12 +940,12 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl px-4">
             <FadeIn>
               <div className="space-y-3 text-center">
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-blue-700">
+                <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
                   FAQ
-                </h2>
-                <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
                   Häufige Fragen zu TinyBill.
-                </h3>
+                </h2>
               </div>
             </FadeIn>
 
