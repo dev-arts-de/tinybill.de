@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FadeIn } from "@/components/FadeIn";
 import { useRef, useState } from "react";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { APP_URL } from "@/lib/links";
 import {
   AutoCheckRow,
   FeatureCard,
@@ -114,7 +115,7 @@ export default function HomePage() {
 
                 <div className="flex flex-wrap items-center gap-3">
                   <a
-                      href="https://app.tinybill.de"
+                      href={APP_URL}
                       className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-blue-500"
                   >
                     Jetzt Rechnung erstellen
@@ -910,7 +911,7 @@ export default function HomePage() {
 
                 <div className="flex flex-col items-center gap-3">
                   <a
-                      href="https://app.tinybill.de"
+                      href={APP_URL}
                       className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-blue-500"
                   >
                     Kostenlos starten

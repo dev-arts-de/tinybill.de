@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { APP_URL } from "@/lib/links";
 
 type NavItem = {
     label: string;
@@ -48,7 +49,7 @@ export function SiteHeader() {
                         ))}
 
                         <a
-                            href="https://app.tinybill.de"
+                            href={APP_URL}
                             className="rounded-full border border-slate-200 bg-slate-900 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-slate-800"
                         >
                             Zur App
@@ -90,7 +91,7 @@ export function SiteHeader() {
 
             {/* Fixed mobile CTA */}
             <a
-                href="https://app.tinybill.de"
+                href={APP_URL}
                 className="fixed bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center justify-center rounded-full bg-slate-900 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-slate-900/25 hover:bg-slate-800 md:hidden"
             >
                 Zur App
