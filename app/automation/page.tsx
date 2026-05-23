@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import {
     PageShell,
     SectionHeader,
-    FeatureCard,
     AutoCheckRow,
     StepCard,
 } from "@/components/marketing";
