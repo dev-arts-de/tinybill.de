@@ -2,37 +2,16 @@
 
 import Image from "next/image";
 import { FadeIn } from "@/components/FadeIn";
-import { useEffect, useState, useRef } from "react";
+import { useRef, useState } from "react";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import {
   AutoCheckRow,
   FeatureCard,
   GrowthCard,
-  StepCard,
   FaqItem,
   SectionHeader,
   PageShell,
 } from "@/components/marketing";
-
-type NavStyle = "light" | "muted";
-
-const SECTION_ORDER = [
-  "hero",
-  "product",
-  "features",
-  "einvoice",
-  "automation",
-  "growth",
-  "flow",
-  "personas",
-  "comparison",
-  "details",
-  "security",
-  "vision",
-  "future",
-  "pricing",
-  "faq",
-] as const;
 
 type DemoSlide = {
   title: string;
@@ -59,72 +38,8 @@ const DEMO_SLIDES: DemoSlide[] = [
 ];
 
 export default function HomePage() {
-  const [activeSection, setActiveSection] =
-      useState<(typeof SECTION_ORDER)[number]>("hero");
-  const [navStyle, setNavStyle] = useState<NavStyle>("light");
   const [demoOpen, setDemoOpen] = useState(false);
   const [activeDemo, setActiveDemo] = useState(0);
-
-  useEffect(() => {
-    const sectionElements = SECTION_ORDER.map((id) =>
-        document.getElementById(id),
-    ).filter(Boolean) as HTMLElement[];
-
-    if (sectionElements.length === 0) return;
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-              .filter((e) => e.isIntersecting)
-              .sort(
-                  (a, b) =>
-                      (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0),
-              );
-
-          if (visible.length > 0) {
-            const id = visible[0].target.id as (typeof SECTION_ORDER)[number];
-            setActiveSection(id);
-          }
-        },
-        {
-          threshold: [0.25, 0.4, 0.6],
-        },
-    );
-
-    sectionElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const mutedSections: (typeof SECTION_ORDER)[number][] = [
-      "product",
-      "automation",
-      "comparison",
-      "details",
-      "security",
-      "pricing",
-    ];
-    if (mutedSections.includes(activeSection)) {
-      setNavStyle("muted");
-    } else {
-      setNavStyle("light");
-    }
-  }, [activeSection]);
-
-  const isHero = activeSection === "hero";
-
-  const navBgClass =
-      navStyle === "light"
-          ? isHero
-              ? "bg-white/5 backdrop-blur-xl"
-              : "bg-white/70 backdrop-blur-xl shadow-[0_8px_30px_rgba(15,23,42,0.08)]"
-          : isHero
-              ? "bg-slate-50/10 backdrop-blur-xl"
-              : "bg-slate-50/80 backdrop-blur-xl shadow-[0_8px_24px_rgba(15,23,42,0.06)]";
-
-  const linkBase = "text-sm transition-colors hover:text-slate-900";
-  const linkMuted = "text-slate-500";
 
   const handlePrev = () => {
     setActiveDemo((prev) =>
