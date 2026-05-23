@@ -92,7 +92,9 @@ export function SiteHeader() {
             {/* Fixed mobile CTA */}
             <a
                 href={APP_URL}
-                className="fixed bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center justify-center rounded-full bg-slate-900 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-slate-900/25 hover:bg-slate-800 md:hidden"
+                aria-label="TinyBill App öffnen"
+                style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}
+                className="fixed left-1/2 z-40 flex -translate-x-1/2 items-center justify-center rounded-full bg-slate-900 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-slate-900/25 hover:bg-slate-800 md:hidden"
             >
                 Zur App
             </a>
