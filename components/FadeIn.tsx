@@ -1,22 +1,60 @@
 "use client";
 
-import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 
 type FadeInProps = {
     children: ReactNode;
     delay?: number;
 };
 
+const VIEWPORT_THRESHOLD = 0.2;
+
 export function FadeIn({ children, delay = 0 }: FadeInProps) {
+    const ref = useRef<HTMLDivElement | null>(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const node = ref.current;
+        if (!node) return;
+
+        const prefersReducedMotion =
+            typeof window !== "undefined" &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (prefersReducedMotion) {
+            setVisible(true);
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                if (entry?.isIntersecting) {
+                    setVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: VIEWPORT_THRESHOLD },
+        );
+
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay }}
-            viewport={{ once: true, amount: 0.2 }}
+        <div
+            ref={ref}
+            style={{
+                transitionDelay: visible ? `${delay}s` : undefined,
+            }}
+            className={
+                visible
+                    ? "translate-y-0 opacity-100 transition-[transform,opacity] duration-500 ease-out"
+                    : "translate-y-4 opacity-0 transition-[transform,opacity] duration-500 ease-out"
+            }
         >
             {children}
-        </motion.div>
+        </div>
     );
 }
