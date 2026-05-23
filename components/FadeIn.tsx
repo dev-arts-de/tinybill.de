@@ -18,11 +18,14 @@ export function FadeIn({ children, delay = 0 }: FadeInProps) {
         const node = ref.current;
         if (!node) return;
 
-        const prefersReducedMotion =
-            typeof window !== "undefined" &&
-            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
 
         if (prefersReducedMotion) {
+            // Sync state with platform preference — see
+            // https://react.dev/learn/you-might-not-need-an-effect
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setVisible(true);
             return;
         }

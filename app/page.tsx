@@ -51,6 +51,7 @@ export default function HomePage() {
     if (!demoOpen) return;
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
+    const triggerOnOpen = triggerRef.current;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
@@ -67,7 +68,7 @@ export default function HomePage() {
     return () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = previousOverflow;
-      const restore = triggerRef.current ?? previouslyFocused;
+      const restore = triggerOnOpen ?? previouslyFocused;
       restore?.focus({ preventScroll: true });
     };
   }, [demoOpen]);
