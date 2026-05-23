@@ -5,6 +5,8 @@ import { FadeIn } from "@/components/FadeIn";
 import { useRef, useState } from "react";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { APP_URL } from "@/lib/links";
+import { JsonLd } from "@/components/json-ld";
+import { softwareApplicationLd } from "@/lib/json-ld";
 import {
   AutoCheckRow,
   FeatureCard,
@@ -88,6 +90,7 @@ export default function HomePage() {
 
   return (
       <PageShell>
+        <JsonLd data={softwareApplicationLd()} id="ld-product" />
         {/* Sticky Navbar */}
         <SiteHeader />
 

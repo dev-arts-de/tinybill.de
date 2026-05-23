@@ -3,6 +3,8 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { SITE_URL } from "@/lib/links";
+import { JsonLd } from "@/components/json-ld";
+import { organizationLd, websiteLd } from "@/lib/json-ld";
 
 const DEFAULT_TITLE = "TinyBill – Rechnungen in Minuten statt Stunden";
 const DEFAULT_DESCRIPTION =
@@ -77,6 +79,10 @@ export default function RootLayout({
             <SpeedInsights />
             <Analytics />
             <body className="min-h-screen bg-slate-50 text-slate-900">
+                <JsonLd
+                    data={[organizationLd(), websiteLd()]}
+                    id="ld-org"
+                />
                 {children}
             </body>
         </html>
