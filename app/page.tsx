@@ -7,6 +7,7 @@ import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { APP_URL } from "@/lib/links";
 import { JsonLd } from "@/components/json-ld";
 import { softwareApplicationLd } from "@/lib/json-ld";
+import { useSwipe } from "@/lib/use-swipe";
 import {
   AutoCheckRow,
   FeatureCard,
@@ -85,35 +86,10 @@ export default function HomePage() {
 
   const activeSlide = DEMO_SLIDES[activeDemo];
 
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.changedTouches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    touchEndX.current = e.changedTouches[0].clientX;
-    if (touchStartX.current === null || touchEndX.current === null) return;
-
-    const delta = touchStartX.current - touchEndX.current;
-    const threshold = 40; // horizontal swipe distance in px
-
-    if (Math.abs(delta) < threshold) {
-      touchStartX.current = null;
-      touchEndX.current = null;
-      return;
-    }
-
-    if (delta > 0) {
-      handleNext(); // swipe left → nächste Demo
-    } else {
-      handlePrev(); // swipe right → vorherige Demo
-    }
-
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
+  const swipeHandlers = useSwipe({
+    onSwipeLeft: handleNext,
+    onSwipeRight: handlePrev,
+  });
 
   return (
       <PageShell>
@@ -1054,8 +1030,7 @@ export default function HomePage() {
                   <div className="flex flex-col items-center md:items-stretch">
                     <div
                         className="relative w-full max-w-xs rounded-2xl border border-dashed border-slate-200 bg-white p-3 shadow-md sm:max-w-[380px]"
-                        onTouchStart={handleTouchStart}
-                        onTouchEnd={handleTouchEnd}
+                        {...swipeHandlers}
                     >
                       <div className="relative mx-auto aspect-[3/4] w-full overflow-hidden rounded-xl border border-slate-200 bg-white">
                         <Image
