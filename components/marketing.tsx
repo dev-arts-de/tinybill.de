@@ -80,10 +80,18 @@ export type FaqItemProps = {
 
 export function FaqItem({ question, answer }: FaqItemProps) {
     return (
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div className="text-sm font-semibold text-slate-900">{question}</div>
+        <details className="group rounded-2xl border border-slate-200 bg-slate-50 p-4 open:bg-white open:shadow-sm">
+            <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-sm font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                <span>{question}</span>
+                <span
+                    aria-hidden="true"
+                    className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-slate-300 text-xs text-slate-500 transition-transform group-open:rotate-45"
+                >
+                    +
+                </span>
+            </summary>
             <p className="mt-2 text-xs text-slate-600">{answer}</p>
-        </div>
+        </details>
     );
 }
 
