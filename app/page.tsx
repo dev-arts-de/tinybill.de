@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FadeIn } from "@/components/FadeIn";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { APP_URL } from "@/lib/links";
 import { JsonLd } from "@/components/json-ld";
@@ -43,6 +43,33 @@ const DEMO_SLIDES: DemoSlide[] = [
 export default function HomePage() {
   const [demoOpen, setDemoOpen] = useState(false);
   const [activeDemo, setActiveDemo] = useState(0);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!demoOpen) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setDemoOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKey);
+
+    closeButtonRef.current?.focus();
+
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = previousOverflow;
+      const restore = triggerRef.current ?? previouslyFocused;
+      restore?.focus({ preventScroll: true });
+    };
+  }, [demoOpen]);
 
   const handlePrev = () => {
     setActiveDemo((prev) =>
@@ -124,8 +151,12 @@ export default function HomePage() {
                     Jetzt Rechnung erstellen
                   </a>
                   <button
+                      ref={triggerRef}
                       type="button"
                       onClick={() => setDemoOpen(true)}
+                      aria-haspopup="dialog"
+                      aria-expanded={demoOpen}
+                      aria-controls="demo-dialog"
                       className="inline-flex items-center justify-center rounded-full border border-dashed border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-800 hover:bg-slate-50"
                   >
                     Demo-Rechnungen ansehen
@@ -979,24 +1010,38 @@ export default function HomePage() {
             <div
                 className="fixed inset-0 z-40 flex items-stretch justify-center bg-slate-900/40 px-2 py-4 sm:items-center sm:px-4"
                 onClick={() => setDemoOpen(false)}
+                aria-hidden="true"
             >
               <div
+                  id="demo-dialog"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="demo-dialog-title"
+                  aria-describedby="demo-dialog-description"
                   className="relative flex max-h-[100vh] w-full max-w-lg flex-col overflow-y-auto rounded-3xl border border-dashed border-slate-200 bg-white text-slate-900 shadow-xl sm:max-w-5xl"
                   onClick={(e) => e.stopPropagation()}
               >
                 {/* Header */}
                 <div className="flex flex-col gap-3 border-b border-dashed border-slate-200 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">
+                    <p
+                        id="demo-dialog-title"
+                        className="text-xs font-semibold uppercase tracking-wide text-blue-700"
+                    >
                       Demo-Rechnungen
                     </p>
-                    <p className="text-xs text-slate-600 sm:text-sm">
+                    <p
+                        id="demo-dialog-description"
+                        className="text-xs text-slate-600 sm:text-sm"
+                    >
                       Blättere durch verschiedene Beispielszenarien – von Projekt bis Retainer.
                     </p>
                   </div>
                   <button
+                      ref={closeButtonRef}
                       type="button"
                       onClick={() => setDemoOpen(false)}
+                      aria-label="Demo-Rechnungen schließen"
                       className="self-start rounded-full border border-slate-300 bg-white px-3 py-1 text-xs text-slate-700 hover:bg-slate-50 sm:self-auto"
                   >
                     Schließen
@@ -1026,6 +1071,7 @@ export default function HomePage() {
                       <button
                           type="button"
                           onClick={handlePrev}
+                          aria-label="Vorherige Demo-Rechnung"
                           className="absolute left-2 top-1/2 hidden -translate-y-1/2 rounded-full border border-slate-300 bg-white/90 px-2 py-1 text-xs text-slate-700 hover:bg-slate-50 sm:inline-flex"
                       >
                         ‹
@@ -1033,6 +1079,7 @@ export default function HomePage() {
                       <button
                           type="button"
                           onClick={handleNext}
+                          aria-label="Nächste Demo-Rechnung"
                           className="absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-full border border-slate-300 bg-white/90 px-2 py-1 text-xs text-slate-700 hover:bg-slate-50 sm:inline-flex"
                       >
                         ›
