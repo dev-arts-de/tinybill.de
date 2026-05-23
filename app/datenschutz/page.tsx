@@ -1,5 +1,3 @@
-"use client";
-
 import { PageShell } from "@/components/marketing";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
