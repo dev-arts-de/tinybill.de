@@ -155,7 +155,7 @@ export const FAQ_GROUPS: ReadonlyArray<FaqGroup> = [
                 question:
                     "Verwendet TinyBill Cookies oder Analyse-Tools?",
                 answer:
-                    "Ja, es kommen Cookies, Local Storage, Google Analytics und Google Fonts sowie übliche CDN-Dienste zum Einsatz. Genaue Informationen zu Umfang, Zweck und Rechtsgrundlagen findest du in der Datenschutzerklärung.",
+                    "Auf der Landingpage werden keine Marketing-Cookies gesetzt. Zur Reichweitenmessung kommen Vercel Analytics und Vercel Speed Insights zum Einsatz – beide arbeiten ohne Cookies und ohne dauerhaftes Wiedererkennen einzelner Personen. In der App selbst werden nur technisch notwendige Cookies und Local Storage für Entwürfe und Einstellungen genutzt. Details findest du in der Datenschutzerklärung.",
             },
             {
                 question:

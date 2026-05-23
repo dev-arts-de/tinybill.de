@@ -191,22 +191,20 @@ export default function DatenschutzPage() {
                             6. Cookies und Local Storage
                         </h2>
                         <p className="text-sm text-slate-700">
-                            TinyBill verwendet Cookies und Local-Storage-Technologien, um bestimmte
-                            Funktionen bereitzustellen und die Nutzung zu erleichtern. Hierzu können
-                            insbesondere gehören:
+                            Auf dieser Landingpage (tinybill.de) selbst kommen keine eigenen
+                            Tracking- oder Marketing-Cookies zum Einsatz. Soweit innerhalb der
+                            App (app.tinybill.de) Cookies und Local-Storage-Technologien
+                            verwendet werden, dienen sie ausschließlich der Bereitstellung der
+                            Funktionalität (z.&nbsp;B. Session- und Login-Cookies) oder der
+                            Speicherung deiner Eingaben und Einstellungen.
                         </p>
                         <ul className="ml-4 list-disc space-y-1 text-sm text-slate-700">
-                            <li>technisch notwendige Cookies (z.&nbsp;B. Session- und Login-Cookies)</li>
-                            <li>Einstellungen und Präferenzen im Local Storage</li>
-                            <li>
-                                gegebenenfalls Cookies für Analysezwecke (siehe Abschnitt zu Google
-                                Analytics)
-                            </li>
+                            <li>technisch notwendige Cookies (z.&nbsp;B. Session- und Login-Cookies in der App)</li>
+                            <li>Einstellungen, Präferenzen und Rechnungsentwürfe im Local Storage</li>
                         </ul>
                         <p className="text-sm text-slate-700">
-                            Soweit Cookies technisch notwendig sind, erfolgt die Verarbeitung auf Basis
-                            von Art. 6 Abs. 1 lit. f DSGVO. Soweit eine Einwilligung erforderlich ist,
-                            erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO.
+                            Die Verarbeitung technisch notwendiger Cookies erfolgt auf Basis
+                            von Art. 6 Abs. 1 lit. f DSGVO bzw. § 25 Abs. 2 Nr. 2 TTDSG.
                         </p>
                         <p className="text-sm text-slate-700">
                             Du kannst deinen Browser so einstellen, dass Cookies eingeschränkt oder
@@ -215,60 +213,45 @@ export default function DatenschutzPage() {
                         </p>
                     </section>
 
-                    {/* Google Analytics */}
+                    {/* Reichweitenmessung */}
                     <section className="space-y-2">
                         <h2 className="text-base font-semibold text-slate-900">
-                            7. Einsatz von Google Analytics
+                            7. Reichweitenmessung (Vercel Analytics &amp; Speed Insights)
                         </h2>
                         <p className="text-sm text-slate-700">
-                            Wir verwenden Google Analytics, einen Webanalysedienst der Google
-                            Ireland Limited. Google Analytics nutzt Cookies und ähnliche
-                            Technologien, um die Nutzung unserer Website auszuwerten und Berichte
-                            über die Website-Aktivitäten zu erstellen.
+                            Wir nutzen auf dieser Landingpage die Dienste Vercel Analytics und
+                            Vercel Speed Insights der Vercel Inc., 340 S Lemon Ave #4133,
+                            Walnut, CA 91789, USA, zur statistischen Auswertung der
+                            Seitennutzung und zur Messung von Performance-Kennzahlen wie
+                            Ladezeiten und Core Web Vitals.
                         </p>
                         <p className="text-sm text-slate-700">
-                            Die durch Google Analytics erhobenen Informationen über deine Nutzung
-                            dieser Website können an Server von Google übertragen und dort
-                            verarbeitet werden. Wir achten darauf, dass IP-Adressen nur in
-                            gekürzter Form verarbeitet werden, sodass ein Personenbezug nicht mehr
-                            direkt hergestellt werden kann (IP-Anonymisierung, soweit verfügbar).
+                            Die Dienste arbeiten ohne Cookies und ohne dauerhaftes
+                            Wiedererkennen einzelner Personen. Erfasst werden lediglich
+                            aggregierte, pseudonymisierte Nutzungsdaten (z.&nbsp;B. aufgerufene
+                            Seite, ungefährer Standort auf Länderebene, anonymisierte
+                            Geräteinformationen, Ladezeit-Metriken). Eine direkte
+                            Identifizierung einzelner Besucher:innen ist damit nicht möglich.
                         </p>
                         <p className="text-sm text-slate-700">
-                            Die Nutzung von Google Analytics erfolgt in der Regel auf Grundlage
-                            deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Du kannst deine
-                            Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, etwa über
-                            entsprechende Einstellungen in einem Consent-Tool oder durch Anpassung
-                            deiner Browser-Einstellungen.
+                            Rechtsgrundlage ist unser berechtigtes Interesse an einer
+                            statistischen Auswertung und einer technisch stabilen, performanten
+                            Bereitstellung der Website gemäß Art. 6 Abs. 1 lit. f DSGVO. Eine
+                            Übermittlung in die USA kann nicht ausgeschlossen werden; Vercel
+                            tritt insoweit als Auftragsverarbeiter auf, mit dem ein
+                            entsprechender Vertrag nach Art. 28 DSGVO besteht.
                         </p>
                         <p className="text-sm text-slate-700">
-                            Zusätzlich kannst du die Erfassung durch Google Analytics verhindern,
-                            indem du das von Google bereitgestellte Browser-Add-on zur
-                            Deaktivierung installierst.
-                        </p>
-                    </section>
-
-                    {/* Google Fonts */}
-                    <section className="space-y-2">
-                        <h2 className="text-base font-semibold text-slate-900">
-                            8. Google Fonts
-                        </h2>
-                        <p className="text-sm text-slate-700">
-                            Zur einheitlichen Darstellung von Schriftarten können auf unseren Seiten
-                            Google Fonts eingesetzt werden. Je nach Implementierung kann hierbei eine
-                            Anfrage an Server von Google gesendet werden, um Schriftarten zu laden.
-                        </p>
-                        <p className="text-sm text-slate-700">
-                            Die Nutzung von Google Fonts erfolgt im Interesse einer ansprechenden und
-                            konsistenten Darstellung unserer Inhalte (Art. 6 Abs. 1 lit. f DSGVO). Wo
-                            möglich, setzen wir auf lokal gehostete Schriftarten, um Datenübertragungen
-                            an Dritte zu minimieren.
+                            Du kannst der Erfassung durch Aktivierung einer „Do Not Track“-
+                            oder „Global Privacy Control“-Einstellung in deinem Browser oder
+                            durch Einsatz gängiger Tracking-Blocker widersprechen.
                         </p>
                     </section>
 
                     {/* CDN / Infrastruktur */}
                     <section className="space-y-2">
                         <h2 className="text-base font-semibold text-slate-900">
-                            9. Content Delivery und technische Infrastruktur
+                            8. Content Delivery und technische Infrastruktur
                         </h2>
                         <p className="text-sm text-slate-700">
                             Zur effizienten Auslieferung von Inhalten können Infrastruktur- und
@@ -286,7 +269,7 @@ export default function DatenschutzPage() {
                     {/* Auftragsverarbeitung */}
                     <section className="space-y-2">
                         <h2 className="text-base font-semibold text-slate-900">
-                            10. Auftragsverarbeitung und Weitergabe von Daten
+                            9. Auftragsverarbeitung und Weitergabe von Daten
                         </h2>
                         <p className="text-sm text-slate-700">
                             Für den Betrieb von TinyBill und der Website setzen wir Dienstleister als
@@ -306,7 +289,7 @@ export default function DatenschutzPage() {
                     {/* Betroffenenrechte */}
                     <section className="space-y-2">
                         <h2 className="text-base font-semibold text-slate-900">
-                            11. Deine Rechte
+                            10. Deine Rechte
                         </h2>
                         <p className="text-sm text-slate-700">
                             Dir stehen im Hinblick auf die Verarbeitung deiner personenbezogenen Daten
@@ -347,7 +330,7 @@ export default function DatenschutzPage() {
                     {/* Speicherdauer */}
                     <section className="space-y-2">
                         <h2 className="text-base font-semibold text-slate-900">
-                            12. Speicherdauer
+                            11. Speicherdauer
                         </h2>
                         <p className="text-sm text-slate-700">
                             Wir speichern personenbezogene Daten nur so lange, wie es für die
@@ -360,7 +343,7 @@ export default function DatenschutzPage() {
                     {/* Stand */}
                     <section className="space-y-1">
                         <h2 className="text-base font-semibold text-slate-900">
-                            13. Aktualität dieser Datenschutzerklärung
+                            12. Aktualität dieser Datenschutzerklärung
                         </h2>
                         <p className="text-sm text-slate-700">
                             Wir passen diese Datenschutzerklärung an, wenn sich rechtliche Vorgaben,
